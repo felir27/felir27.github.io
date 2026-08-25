@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felipe Rodriguez | Mechanical Engineering Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --border: #334155;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    h1 { font-size: 2.25rem; margin-bottom: 0.25rem; color: #fff; }
+    h2 { font-size: 1.5rem; color: var(--accent); margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); font-size: 1.1rem; margin-top: 0; }
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 1.25rem;
+      font-weight: 500;
+    }
+    .links a:hover { text-decoration: underline; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .card h3 { margin-top: 0; font-size: 1.2rem; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0;
+    }
+    .tag {
+      background: #0ea5e920;
+      color: var(--accent);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Felipe Rodriguez</h1>
+      <p class="subtitle">Mechanical Engineering Undergraduate · Georgia Institute of Technology</p>
+      <div class="links">
+        <a href="https://linkedin.com/in/felipe-rodriguez-7347a02ab" target="_blank">LinkedIn</a>
+        <a href="mailto:feliper27school@gmail.com">Email</a>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About & Focus</h2>
+      <p>Mechanical engineering student focused on CAD/surface modeling, aerodynamics, and mechanism design. Experienced in CATIA, Rhino 3D (SubD/NURBS), ANSYS Fluent CFD, and composite/additive manufacturing prototyping.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Engineering Projects & Work</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <h3>HyTech Racing — Formula SAE Electric</h3>
+          <div class="tags">
+            <span class="tag">CATIA</span>
+            <span class="tag">ANSYS Fluent</span>
+            <span class="tag">PACE HPC</span>
+            <span class="tag">Carbon Fiber</span>
+          </div>
+          <p>Parametric aerodynamic surfacing and undertray design. Executed CFD simulations on Georgia Tech's PACE supercomputing cluster to minimize drag and optimize downforce; fabricated composite aero packages via resin-infusion layups.</p>
+        </div>
+
+        <div class="card">
+          <h3>ME 2110 Mechatronic Device Design</h3>
+          <div class="tags">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">DFM</span>
+            <span class="tag">Rapid Prototyping</span>
+            <span class="tag">Mechanism Synthesis</span>
+          </div>
+          <p>Autonomous mechanical system design and manufacturing cycle. Developed linkage mechanisms, laser-cut chassis structures, and 3D printed components subject to strict design constraints and testing cycles.</p>
+        </div>
+
+        <div class="card">
+          <h3>3D CAD Jewelry & Precision Modeling</h3>
+          <div class="tags">
+            <span class="tag">Rhino 3D</span>
+            <span class="tag">SubD / NURBS</span>
+            <span class="tag">Investment Casting</span>
+          </div>
+          <p>Designed 12+ production-grade CAD models maintaining tight geometric tolerances for investment casting, rendering high-fidelity visualizations for manufacturing handoff.</p>
+        </div>
+
+        <div class="card">
+          <h3>Scratch-Built RC Aircraft</h3>
+          <div class="tags">
+            <span class="tag">Aerodynamics</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Flight Dynamics</span>
+          </div>
+          <p>Designed, aerodynamically balanced, assembled, and flight-tested an RC aircraft constructed entirely from raw materials without prefabricated components.</p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</body>
+</html>
