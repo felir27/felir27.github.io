@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Felipe Rodriguez | Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Mechanical engineering portfolio of Felipe Rodriguez, Georgia Tech: CAD, CFD, bolted-joint design, and Formula SAE Electric." />
+  <meta property="og:title" content="Felipe Rodriguez | Mechanical Engineering Portfolio" />
+  <meta property="og:description" content="CAD, CFD, bolted-joint design, and Formula SAE Electric projects." />
+  <meta property="og:type" content="website" />
   <style>
     :root {
       --bg: #0f172a;
@@ -13,60 +17,89 @@
       --accent: #38bdf8;
       --border: #334155;
     }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
+      background: radial-gradient(1200px 500px at 10% -10%, #1e3a5f55, transparent), var(--bg);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
       margin: 0;
       padding: 0;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem; }
     header {
       border-bottom: 1px solid var(--border);
       padding-bottom: 2rem;
       margin-bottom: 2.5rem;
     }
-    h1 { font-size: 2.25rem; margin-bottom: 0.25rem; color: #fff; }
-    h2 { font-size: 1.5rem; color: var(--accent); margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    .subtitle { color: var(--muted); font-size: 1.1rem; margin-top: 0; }
+    h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin: 0 0 0.25rem; color: #fff; letter-spacing: -0.02em; }
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin: 2.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    .subtitle { color: var(--muted); font-size: 1.1rem; margin: 0 0 1.25rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .links a {
       color: var(--accent);
       text-decoration: none;
-      margin-right: 1.25rem;
       font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .links a:hover { text-decoration: underline; }
+    .links a:hover, .links a:focus-visible { background: #38bdf81a; border-color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
       gap: 1.5rem;
-      margin-top: 1rem;
     }
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 1.25rem;
-    }
-    .card h3 { margin-top: 0; font-size: 1.2rem; }
-    .tags {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 0.75rem 0;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 8px 24px #0006; }
+    .card h3 { margin: 0; font-size: 1.15rem; }
+    .card p { margin: 0.75rem 0 0; color: #dbe4ef; }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-top: 0.75rem;
+      border: 1px solid var(--border);
+      background: #0b1220;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 0; }
     .tag {
       background: #0ea5e920;
       color: var(--accent);
-      padding: 0.2rem 0.5rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 4px;
       font-size: 0.75rem;
       font-weight: 600;
+    }
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .skills div { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+    .skills h3 { margin: 0 0 0.35rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .skills p { margin: 0; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 480px) { .card img { height: 180px; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card, .links a { transition: none; }
+      .card:hover { transform: none; }
     }
   </style>
 </head>
@@ -75,69 +108,83 @@
     <header>
       <h1>Felipe Rodriguez</h1>
       <p class="subtitle">Mechanical Engineering Undergraduate · Georgia Institute of Technology</p>
-      <div class="links">
-        <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank">LinkedIn</a>
+      <nav class="links" aria-label="Contact links">
+        <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:frodriguez61@gatech.edu">Email</a>
-      </div>
+      </nav>
     </header>
 
-    <section id="about">
-      <h2>About & Focus</h2>
-      <p>Mechanical engineering student focused on CAD/surface modeling, aerodynamics, and mechanism design. Experienced in CATIA, Rhino 3D (SubD/NURBS), ANSYS Fluent CFD, and composite/additive manufacturing prototyping.</p>
-    </section>
+    <main>
+      <section id="about">
+        <h2>About &amp; Focus</h2>
+        <p>Mechanical engineering student focused on CAD and surface modeling, aerodynamics, and mechanical design. Experienced in CATIA, Rhino 3D (SubD/NURBS), ANSYS Fluent CFD, and prototyping with composites and additive manufacturing.</p>
+      </section>
 
-    <section id="projects">
-      <h2>Engineering Projects & Work</h2>
-      <div class="grid">
+      <section id="projects">
+        <h2>Engineering Projects &amp; Work</h2>
+        <div class="grid">
 
-        <div class="card">
-          <h3>HyTech Racing — Bolted Joint Torque Spec Calculator</h3>
-          <div class="tags">
-            <span class="tag">MATLAB</span>
-            <span class="tag">Bolted Joint Design</span>
-            <span class="tag">Shigley Frustum Method</span>
-            <span class="tag">Composites</span>
-          </div>
-          <img src="Torque Calculator Portfolio Image.png.jpg" alt="MATLAB output showing the clamped material stack, frustum compression cone, and torque spec summary" style="width: 100%; border-radius: 6px; margin-top: 0.75rem; border: 1px solid var(--border);" />
-          <p>Wrote a MATLAB tool that outputs torque specs for bolted joints from bolt properties, a variable multi-material clamped stack, applied loads, and a safety factor. Models joint stiffness with the Shigley frustum method and sizes preload against both separation and shear slip.</p>
+          <article class="card">
+            <h3>HyTech Racing — Bolted Joint Torque Spec Calculator</h3>
+            <div class="tags">
+              <span class="tag">MATLAB</span>
+              <span class="tag">Bolted Joint Design</span>
+              <span class="tag">Shigley Frustum Method</span>
+            </div>
+            <img src="Torque%20Calculator%20Portfolio%20Image.png.jpg" loading="lazy" alt="MATLAB output showing the clamped material stack, frustum compression cone, and torque spec summary" />
+            <p>Wrote a MATLAB tool that outputs torque specs for bolted joints from bolt properties, a variable multi-material clamped stack, applied loads, and a safety factor. Models joint stiffness with the Shigley frustum method and sizes preload against both separation and shear slip.</p>
+          </article>
+
+          <article class="card">
+            <h3>HyTech Racing — Formula SAE Electric Aerodynamics</h3>
+            <div class="tags">
+              <span class="tag">CATIA</span>
+              <span class="tag">ANSYS Fluent</span>
+              <span class="tag">PACE HPC</span>
+              <span class="tag">Carbon Fiber</span>
+            </div>
+            <img src="Hytech%20Portfolio%20Image.jpg" loading="lazy" alt="HyTech CFD meshing" />
+            <p>Built parametric aerodynamic surfaces in CATIA and ran CFD on Georgia Tech's PACE cluster. Identified a wing angle that cut drag 28% for a 17% downforce trade-off versus the high-downforce baseline, and presented the findings to the aero lead. Also fabricated composite aero parts through mold tooling and resin-infusion layups.</p>
+          </article>
+
+          <article class="card">
+            <h3>3D CAD Jewelry &amp; Precision Modeling</h3>
+            <div class="tags">
+              <span class="tag">Rhino 3D</span>
+              <span class="tag">SubD / NURBS</span>
+              <span class="tag">Investment Casting</span>
+            </div>
+            <img src="ring%20portfolio%20image.jpg" loading="lazy" alt="Renders of CAD models in Rhino" />
+            <p>Designed 12+ production-grade CAD models held to tight geometric tolerances for investment casting, with high-fidelity renders for manufacturing handoff.</p>
+          </article>
+
+          <article class="card">
+            <h3>Scratch-Built RC Aircraft</h3>
+            <div class="tags">
+              <span class="tag">Aerodynamics</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Flight Testing</span>
+            </div>
+            <img src="RC%20model%20Portfolio%20Image.jpg" loading="lazy" alt="CAD model of the RC plane" />
+            <p>Designed, balanced, assembled, and flight-tested an RC aircraft built from raw materials without a prefabricated airframe.</p>
+          </article>
+
         </div>
+      </section>
 
-        <div class="card">
-          <h3>HyTech Racing — Formula SAE Electric</h3>
-          <div class="tags">
-            <span class="tag">CATIA</span>
-            <span class="tag">ANSYS Fluent</span>
-            <span class="tag">PACE HPC</span>
-            <span class="tag">Carbon Fiber</span>
-          </div>
-          <img src="Hytech Portfolio Image.jpg" alt="HyTech CFD Meshing" style="width: 100%; border-radius: 6px; margin-top: 0.75rem; border: 1px solid var(--border);" />
-          <p>Parametric aerodynamic surfacing and undertray design. Executed CFD simulations on Georgia Tech's PACE supercomputing cluster to minimize drag and optimize downforce; fabricated composite aero packages via resin-infusion layups.</p>
+      <section id="skills">
+        <h2>Tools &amp; Skills</h2>
+        <div class="skills">
+          <div><h3>CAD</h3><p>CATIA, SOLIDWORKS, Fusion 360, Rhino 3D</p></div>
+          <div><h3>Analysis</h3><p>ANSYS Fluent CFD, MATLAB, Python (coursework)</p></div>
+          <div><h3>Design &amp; Build</h3><p>GD&amp;T, DFM, 3D printing, composite layups</p></div>
         </div>
+      </section>
+    </main>
 
-        <div class="card">
-          <h3>3D CAD Jewelry & Precision Modeling</h3>
-          <div class="tags">
-            <span class="tag">Rhino 3D</span>
-            <span class="tag">SubD / NURBS</span>
-            <span class="tag">Investment Casting</span>
-          </div>
-          <img src="ring portfolio image.jpg" alt="Renders of my CAD models in Rhino" style="width: 100%; border-radius: 6px; margin-top: 0.75rem; border: 1px solid var(--border);" />
-          <p>Designed 12+ production-grade CAD models maintaining tight geometric tolerances for investment casting, rendering high-fidelity visualizations for manufacturing handoff.</p>
-        </div>
-
-        <div class="card">
-          <h3>Scratch-Built RC Aircraft</h3>
-          <div class="tags">
-            <span class="tag">Aerodynamics</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">Flight Dynamics</span>
-          </div>
-           <img src="RC model Portfolio Image.jpg" alt="CAD Model of the RC Plane" style="width: 100%; border-radius: 6px; margin-top: 0.75rem; border: 1px solid var(--border);" />
-          <p>Designed, aerodynamically balanced, assembled, and flight-tested an RC aircraft constructed entirely from raw materials without a prefabricated airframe.</p>
-        </div>
-
-      </div>
-    </section>
+    <footer>
+      <p>Georgia Tech Mechanical Engineering · Expected May 2028 · <a href="mailto:frodriguez61@gatech.edu" style="color: var(--accent);">frodriguez61@gatech.edu</a></p>
+    </footer>
   </div>
 </body>
 </html>
