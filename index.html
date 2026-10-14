@@ -76,8 +76,8 @@
       <h1>Felipe Rodriguez</h1>
       <p class="subtitle">Mechanical Engineering Undergraduate · Georgia Institute of Technology</p>
       <div class="links">
-        <a href="www.linkedin.com/in/felipe-rodriguez27" target="_blank">LinkedIn</a>
-        <a href="mailto:felipe.r.meche@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank">LinkedIn</a>
+        <a href="mailto:frodriguez61@gatech.edu">Email</a>
       </div>
     </header>
 
@@ -89,7 +89,19 @@
     <section id="projects">
       <h2>Engineering Projects & Work</h2>
       <div class="grid">
-        
+
+        <div class="card">
+          <h3>HyTech Racing — Bolted Joint Torque Spec Calculator</h3>
+          <div class="tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Bolted Joint Design</span>
+            <span class="tag">Shigley Frustum Method</span>
+            <span class="tag">Composites</span>
+          </div>
+          <img src="Torque Calculator Portfolio Image.png" alt="MATLAB output showing the clamped material stack, frustum compression cone, and torque spec summary" style="width: 100%; border-radius: 6px; margin-top: 0.75rem; border: 1px solid var(--border);" />
+          <p>Built a MATLAB tool that generates torque specs for the team's bolted joints. It takes bolt properties, a clamped stack of any number of layers (each with its own material, thickness, and stiffness), a 3-axis applied load, and a safety factor. It models member stiffness with the Shigley frustum method, slicing the compression cone across every layer and the joint midplane, then sizes preload against both joint separation and shear slip to output the required preload and torque spec. It also renders a schematic of the stack and compression zone alongside a summary of stiffnesses, bolt forces, and safety margins.</p>
+        </div>
+
         <div class="card">
           <h3>HyTech Racing — Formula SAE Electric</h3>
           <div class="tags">
