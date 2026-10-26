@@ -1,190 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Felipe Rodriguez | Mechanical Engineering Portfolio</title>
-  <meta name="description" content="Mechanical engineering portfolio of Felipe Rodriguez, Georgia Tech: CAD, CFD, bolted-joint design, and Formula SAE Electric." />
-  <meta property="og:title" content="Felipe Rodriguez | Mechanical Engineering Portfolio" />
-  <meta property="og:description" content="CAD, CFD, bolted-joint design, and Formula SAE Electric projects." />
-  <meta property="og:type" content="website" />
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --border: #334155;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(1200px 500px at 10% -10%, #1e3a5f55, transparent), var(--bg);
-      background-attachment: fixed;
-      color: var(--text);
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-    .container { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem; }
-    header {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin: 0 0 0.25rem; color: #fff; letter-spacing: -0.02em; }
-    h2 {
-      font-size: 1.4rem;
-      color: var(--accent);
-      margin: 2.5rem 0 1rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-    }
-    .subtitle { color: var(--muted); font-size: 1.1rem; margin: 0 0 1.25rem; }
-    .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.4rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .links a:hover, .links a:focus-visible { background: #38bdf81a; border-color: var(--accent); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    }
-    .card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 8px 24px #0006; }
-    .card h3 { margin: 0; font-size: 1.15rem; }
-    .card p { margin: 0.75rem 0 0; color: #dbe4ef; }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-top: 0.75rem;
-      border: 1px solid var(--border);
-      background: #0b1220;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 0; }
-    .tag {
-      background: #0ea5e920;
-      color: var(--accent);
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .skills div { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
-    .skills h3 { margin: 0 0 0.35rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-    .skills p { margin: 0; }
-    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
-    @media (max-width: 480px) { .card img { height: 180px; } }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .card, .links a { transition: none; }
-      .card:hover { transform: none; }
-    }
-  </style>
+  <meta name="description" content="Felipe Rodriguez, mechanical engineering student at Georgia Tech: bolted joint design, suspension, aero and design for manufacturing on Formula SAE Electric.">
+  <meta property="og:title" content="Felipe Rodriguez | Mechanical Engineering Portfolio">
+  <meta property="og:description" content="Felipe Rodriguez, mechanical engineering student at Georgia Tech: bolted joint design, suspension, aero and design for manufacturing on Formula SAE Electric.">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Felipe Rodriguez</h1>
-      <p class="subtitle">Mechanical Engineering Undergraduate · Georgia Institute of Technology</p>
-      <nav class="links" aria-label="Contact links">
-        <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:frodriguez61@gatech.edu">Email</a>
-      </nav>
-    </header>
+<script>try{if(localStorage.getItem("theme")==="light")document.body.classList.add("light")}catch(e){}</script>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <main>
-      <section id="about">
-        <h2>About &amp; Focus</h2>
-        <p>Mechanical engineering student focused on CAD and surface modeling, aerodynamics, and mechanical design. Experienced in CATIA, Rhino 3D (SubD/NURBS), ANSYS Fluent CFD, and prototyping with composites and additive manufacturing.</p>
-      </section>
+<div class="brand-island">
+  <a href="#top">Felipe Rodriguez<span class="brand-code" aria-hidden="true">DWG FR-27</span></a>
+</div>
+<nav id="floating-nav" aria-label="Primary"><button class="nav-btn" type="button" data-target="projects">Projects</button><button class="nav-btn" type="button" data-target="about">About</button><button class="nav-btn" type="button" data-target="experience">Experience</button><button class="nav-btn" type="button" data-target="contact">Contact</button><a class="nav-btn" href="resume.html">Resume</a></nav>
+<button id="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
 
-      <section id="projects">
-        <h2>Engineering Projects &amp; Work</h2>
-        <div class="grid">
-
-          <article class="card">
-            <h3>HyTech Racing — Bolted Joint Torque Spec Calculator</h3>
-            <div class="tags">
-              <span class="tag">MATLAB</span>
-              <span class="tag">Bolted Joint Design</span>
-              <span class="tag">Shigley Frustum Method</span>
-            </div>
-            <img src="Torque%20Calculator%20Portfolio%20Image.png.jpg" loading="lazy" alt="MATLAB output showing the clamped material stack, frustum compression cone, and torque spec summary" />
-            <p>Wrote a MATLAB tool that outputs torque specs for bolted joints from bolt properties, a variable multi-material clamped stack, applied loads, and a safety factor. Models joint stiffness with the Shigley frustum method and sizes preload against both separation and shear slip.</p>
-          </article>
-
-          <article class="card">
-            <h3>HyTech Racing — Formula SAE Electric Aerodynamics</h3>
-            <div class="tags">
-              <span class="tag">CATIA</span>
-              <span class="tag">ANSYS Fluent</span>
-              <span class="tag">PACE HPC</span>
-              <span class="tag">Carbon Fiber</span>
-            </div>
-            <img src="Hytech%20Portfolio%20Image.jpg" loading="lazy" alt="HyTech CFD meshing" />
-            <p>Built parametric aerodynamic surfaces in CATIA and ran CFD on Georgia Tech's PACE cluster. Identified a wing angle that cut drag 28% for a 17% downforce trade-off versus the high-downforce baseline, and presented the findings to the aero lead. Also fabricated composite aero parts through mold tooling and resin-infusion layups.</p>
-          </article>
-
-          <article class="card">
-            <h3>3D CAD Jewelry &amp; Precision Modeling</h3>
-            <div class="tags">
-              <span class="tag">Rhino 3D</span>
-              <span class="tag">SubD / NURBS</span>
-              <span class="tag">Investment Casting</span>
-            </div>
-            <img src="ring%20portfolio%20image.jpg" loading="lazy" alt="Renders of CAD models in Rhino" />
-            <p>Designed 12+ production-grade CAD models held to tight geometric tolerances for investment casting, with high-fidelity renders for manufacturing handoff.</p>
-          </article>
-
-          <article class="card">
-            <h3>Scratch-Built RC Aircraft</h3>
-            <div class="tags">
-              <span class="tag">Aerodynamics</span>
-              <span class="tag">Prototyping</span>
-              <span class="tag">Flight Testing</span>
-            </div>
-            <img src="RC%20model%20Portfolio%20Image.jpg" loading="lazy" alt="CAD model of the RC plane" />
-            <p>Designed, balanced, assembled, and flight-tested an RC aircraft built from raw materials without a prefabricated airframe.</p>
-          </article>
-
-        </div>
-      </section>
-
-      <section id="skills">
-        <h2>Tools &amp; Skills</h2>
-        <div class="skills">
-          <div><h3>CAD</h3><p>CATIA, SOLIDWORKS, Fusion 360, Rhino 3D</p></div>
-          <div><h3>Analysis</h3><p>ANSYS Fluent CFD, MATLAB, Python (coursework)</p></div>
-          <div><h3>Design &amp; Build</h3><p>GD&amp;T, DFM, 3D printing, composite layups</p></div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>Georgia Tech Mechanical Engineering · Expected May 2028 · <a href="mailto:frodriguez61@gatech.edu" style="color: var(--accent);">frodriguez61@gatech.edu</a></p>
-    </footer>
+<header class="hero" id="top">
+  <div class="hero-left">
+    <h1 aria-label="Hi, I'm Felipe"><span id="typed" data-text="Hi, I'm Felipe" aria-hidden="true">Hi, I'm Felipe</span><span class="caret" aria-hidden="true"></span></h1>
+    <h3>Mechanical Engineering @ Georgia Tech</h3>
+    <p class="tagline">Design and analysis for Formula SAE Electric &mdash; bolted joints, suspension, and aero.</p>
+    <div class="hero-interest-icons" aria-label="Interests">
+      <span class="interest" role="img" tabindex="0" title="Suspension design" aria-label="Suspension design"><i data-lucide="wrench" aria-hidden="true"></i></span>
+      <span class="interest" role="img" tabindex="0" title="Formula SAE Electric" aria-label="Formula SAE Electric"><i data-lucide="car" aria-hidden="true"></i></span>
+      <span class="interest" role="img" tabindex="0" title="RC aircraft" aria-label="RC aircraft"><i data-lucide="plane" aria-hidden="true"></i></span>
+      <span class="interest" role="img" tabindex="0" title="Jewelry casting" aria-label="Jewelry casting"><i data-lucide="gem" aria-hidden="true"></i></span>
+    </div>
+    <div class="hero-buttons">
+      <button class="btn primary" type="button" data-target="projects">View Projects <i data-lucide="arrow-down" aria-hidden="true"></i></button>
+      <a class="btn secondary" href="resume.html">Resume <i data-lucide="file-text" aria-hidden="true"></i></a>
+    </div>
+    <div class="icon-row">
+      <a href="mailto:frodriguez61@gatech.edu" class="icon-link" aria-label="Email Felipe"><svg viewBox="0 0 24 24" class="stroke" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></a>
+      <a href="https://www.linkedin.com/in/felipe-rodriguez27" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Felipe on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3.2a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2zM2.2 9h3.6v12H2.2zM8.8 9h3.4v1.7h.1c.5-.9 1.7-2 3.6-2 3.8 0 4.5 2.5 4.5 5.7V21h-3.6v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H8.8z"/></svg></a>
+    </div>
   </div>
+  <div class="hero-right">
+    <figure class="joint-figure">
+      <svg viewBox="0 0 460 430" role="img" aria-labelledby="jt-title jt-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="jt-title">Section view of a bolted joint</title>
+<desc id="jt-desc">Drafting-style cross section of an M8 bolt clamping four layers: Al 6061-T6 5.0 mm, CFRP 3.0 mm, G10 3.175 mm and CFRP 3.0 mm, with a washer under the head and under the nut. Dashed lines show the two 30 degree pressure cones (frustums) that meet at the middle of the grip.</desc>
+<defs>
+<pattern id="h-steel" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" class="jt-steel-h" style="stroke:var(--jt-steel);stroke-width:.7"/></pattern>
+<pattern id="h-al" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" style="stroke:var(--jt-al);stroke-width:.9"/></pattern>
+<pattern id="h-cfrp" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="5" style="stroke:var(--jt-cfrp);stroke-width:.9"/></pattern>
+<pattern id="h-g10" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" style="stroke:var(--jt-g10);stroke-width:.8"/><line x1="0" y1="0" x2="7" y2="0" style="stroke:var(--jt-g10);stroke-width:.8"/></pattern>
+<marker id="jt-ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" class="jt-arrow"/></marker>
+</defs>
+<g class="jt-fill"><rect x="110" y="90" width="38" height="16" fill="url(#h-steel)"/><rect x="232" y="90" width="38" height="16" fill="url(#h-steel)"/><rect x="60" y="106" width="88" height="50" fill="url(#h-al)"/><rect x="232" y="106" width="88" height="50" fill="url(#h-al)"/><rect x="60" y="156" width="88" height="30" fill="url(#h-cfrp)"/><rect x="232" y="156" width="88" height="30" fill="url(#h-cfrp)"/><rect x="60" y="186" width="88" height="31.75" fill="url(#h-g10)"/><rect x="232" y="186" width="88" height="31.75" fill="url(#h-g10)"/><rect x="60" y="217.75" width="88" height="30" fill="url(#h-cfrp)"/><rect x="232" y="217.75" width="88" height="30" fill="url(#h-cfrp)"/><rect x="110" y="247.75" width="38" height="16" fill="url(#h-steel)"/><rect x="232" y="247.75" width="38" height="16" fill="url(#h-steel)"/><rect x="125" y="263.75" width="25" height="68" fill="url(#h-steel)"/><rect x="230" y="263.75" width="25" height="68" fill="url(#h-steel)"/></g>
+<path d="M125 90V43L131 37H249L255 43V90H230V384L224 390H156L150 384V90Z" class="jt-steel jt-draw" pathLength="1"/>
+<path d="M168 37V90M212 37V90" class="jt-outline jt-draw d2" pathLength="1" style="stroke-width:.8"/>
+<path d="M110 90H148V106H110Z" class="jt-outline jt-draw" pathLength="1" fill="none"/>
+<path d="M232 90H270V106H232Z" class="jt-outline jt-draw d2" pathLength="1" fill="none"/>
+<path d="M60 106H148V156H60Z" class="jt-layer jt-al jt-draw d2" pathLength="1" fill="none"/>
+<path d="M232 106H320V156H232Z" class="jt-layer jt-al jt-draw d3" pathLength="1" fill="none"/>
+<path d="M60 156H148V186H60Z" class="jt-layer jt-cfrp jt-draw d2" pathLength="1" fill="none"/>
+<path d="M232 156H320V186H232Z" class="jt-layer jt-cfrp jt-draw d3" pathLength="1" fill="none"/>
+<path d="M60 186H148V217.75H60Z" class="jt-layer jt-g10 jt-draw d2" pathLength="1" fill="none"/>
+<path d="M232 186H320V217.75H232Z" class="jt-layer jt-g10 jt-draw d3" pathLength="1" fill="none"/>
+<path d="M60 217.75H148V247.75H60Z" class="jt-layer jt-cfrp jt-draw d2" pathLength="1" fill="none"/>
+<path d="M232 217.75H320V247.75H232Z" class="jt-layer jt-cfrp jt-draw d3" pathLength="1" fill="none"/>
+<path d="M110 247.75H148V263.75H110Z" class="jt-outline jt-draw" pathLength="1" fill="none"/>
+<path d="M232 247.75H270V263.75H232Z" class="jt-outline jt-draw d2" pathLength="1" fill="none"/>
+<path d="M125 263.75H150V331.75H125Z" class="jt-outline jt-draw" pathLength="1" fill="none"/>
+<path d="M230 263.75H255V331.75H230Z" class="jt-outline jt-draw d2" pathLength="1" fill="none"/>
+<g class="jt-late"><path d="M156.8 170V384M223.2 170V384" class="jt-thread"/>
+<path d="M150 170H230" class="jt-dim"/></g>
+<path d="M190 22V410" class="jt-center jt-late"/>
+<g class="jt-cones"><path d="M148 90H130L79.84 176.88L130 263.75H148Z" class="jt-cone-fill"/><path d="M232 90H250L300.16 176.88L250 263.75H232Z" class="jt-cone-fill"/><path d="M130 90L79.84 176.88L130 263.75" class="jt-cone"/><path d="M250 90L300.16 176.88L250 263.75" class="jt-cone"/><path d="M54 176.88H326" class="jt-center" style="stroke:var(--cone)"/><path d="M250 90V134M250 124A34 34 0 0 0 267 119.44" class="jt-dim" style="stroke:var(--cone)"/><text x="262" y="144" class="jt-text cone-label halo">30°</text></g>
+<g class="jt-late"><path d="M251 63.5L338 63.5" class="jt-dim"/><circle cx="251" cy="63.5" r="1.8" class="jt-arrow"/><text x="344" y="67.5" class="jt-text">HEAD</text><path d="M266 98L338 92" class="jt-dim"/><circle cx="266" cy="98" r="1.8" class="jt-arrow"/><text x="344" y="96" class="jt-text">WASHER</text><path d="M316 131L338 131" class="jt-dim"/><circle cx="316" cy="131" r="1.8" class="jt-arrow"/><text x="344" y="135" class="jt-text ink">Al 6061-T6 5.0</text><path d="M316 171L338 171" class="jt-dim"/><circle cx="316" cy="171" r="1.8" class="jt-arrow"/><text x="344" y="175" class="jt-text ink">CFRP 3.0</text><path d="M316 201.88L338 201.88" class="jt-dim"/><circle cx="316" cy="201.88" r="1.8" class="jt-arrow"/><text x="344" y="205.88" class="jt-text ink">G10 3.175</text><path d="M316 232.75L338 232.75" class="jt-dim"/><circle cx="316" cy="232.75" r="1.8" class="jt-arrow"/><text x="344" y="236.75" class="jt-text ink">CFRP 3.0</text><path d="M266 255.75L338 261.75" class="jt-dim"/><circle cx="266" cy="255.75" r="1.8" class="jt-arrow"/><text x="344" y="265.75" class="jt-text">WASHER</text><path d="M251 297.75L338 297.75" class="jt-dim"/><circle cx="251" cy="297.75" r="1.8" class="jt-arrow"/><text x="344" y="301.75" class="jt-text">NUT</text><path d="M56 90H22M56 263.75H22" class="jt-dim"/><path d="M28 90V263.75" class="jt-dim" marker-start="url(#jt-ar)" marker-end="url(#jt-ar)"/><text x="22" y="176.88" class="jt-text" text-anchor="middle" transform="rotate(-90 22 176.88)">GRIP</text><path d="M152 350L90 380H50" class="jt-dim"/><circle cx="152" cy="350" r="1.8" class="jt-arrow"/><text x="50" y="375" class="jt-text ink">M8 10.9</text><text x="190" y="428" text-anchor="middle" class="jt-text ink" style="letter-spacing:.14em">SECTION A–A</text></g>
+</svg>
+
+      <figcaption>M8 BOLTED JOINT &middot; 30&deg; PRESSURE CONES</figcaption>
+    </figure>
+  </div>
+  <button class="scroll-cue" type="button" data-target="projects" aria-label="Scroll to projects" title="Scroll to projects"><i data-lucide="arrow-down" aria-hidden="true"></i></button>
+</header>
+
+<main id="main">
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="section-head">
+    <div class="callout" aria-hidden="true">SECTION A&ndash;A</div>
+    <h2><span id="projects-title">Projects</span> <i data-lucide="folder-open" aria-hidden="true"></i></h2>
+    <p>Design, analysis and build work, most recent first.</p>
+  </div>
+  <div class="projects-grid">
+    <article class="card project-card fade-in" data-href="projects/torque-calculator.html">
+      <div class="thumb contain"><img src="assets/torque-frustum.png" alt="Frustum compression zone of an M8 bolt through the Al, CFRP, G10 and CFRP stack" loading="lazy"></div>
+      <div class="body">
+        <span class="num">ITEM 01</span>
+        <h3><a href="projects/torque-calculator.html">Torque Spec Calculator</a></h3>
+        <p>A MATLAB tool that sets torque specs for HyTech's suspension-to-monocoque bolted joints using the Shigley frustum method.</p>
+        <div class="badges"><span class="badge">&#10003; Matches Shigley Ex. 8-2</span><span class="badge">100-case stress test</span></div>
+        <div class="chips"><span class="chip">MATLAB</span><span class="chip">Bolted joints</span><span class="chip">Shigley frustum</span></div>
+      </div>
+    </article>
+    <article class="card project-card fade-in" data-href="projects/fsae-aero.html">
+      <div class="thumb"><img src="Hytech%20Portfolio%20Image.jpg" alt="CFD mesh around the HyTech car body and rear wing elements" loading="lazy"></div>
+      <div class="body">
+        <span class="num">ITEM 02</span>
+        <h3><a href="projects/fsae-aero.html">FSAE Aero: CFD &amp; Composites</a></h3>
+        <p>A 5-case ANSYS Fluent rear wing sweep on Georgia Tech's PACE cluster, plus resin-infused carbon fiber aero parts.</p>
+        
+        <div class="chips"><span class="chip">ANSYS Fluent</span><span class="chip">PACE HPC</span><span class="chip">Carbon fiber</span></div>
+      </div>
+    </article>
+    <article class="card project-card fade-in" data-href="projects/rc-aircraft.html">
+      <div class="thumb"><img src="RC%20model%20Portfolio%20Image.jpg" alt="CAD model of the scratch-built RC aircraft" loading="lazy"></div>
+      <div class="body">
+        <span class="num">ITEM 03</span>
+        <h3><a href="projects/rc-aircraft.html">RC Aircraft</a></h3>
+        <p>An independent group project: a foam-board airframe sized from a ~10 lbf lift budget around a 255 g payload.</p>
+        
+        <div class="chips"><span class="chip">Hand calcs</span><span class="chip">Structures</span><span class="chip">Flight testing</span></div>
+      </div>
+    </article>
+    <article class="card project-card fade-in" data-href="projects/jncy-casting.html">
+      <div class="thumb"><img src="ring%20portfolio%20image.jpg" alt="Four renders of a halo engagement ring designed for casting" loading="lazy"></div>
+      <div class="body">
+        <span class="num">ITEM 04</span>
+        <h3><a href="projects/jncy-casting.html">JNCY Design for Casting</a></h3>
+        <p>12+ custom Rhino 3D models designed backward from lost-resin investment casting constraints.</p>
+        
+        <div class="chips"><span class="chip">Rhino 3D</span><span class="chip">SubD / NURBS</span><span class="chip">Investment casting</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="section-head">
+    <div class="callout" aria-hidden="true">DETAIL<span class="balloon">B</span></div>
+    <h2><span id="about-title">About</span> <i data-lucide="user" aria-hidden="true"></i></h2>
+    
+  </div>
+  <div class="about-grid">
+    <div class="bio fade-in">
+      <h3 class="sub-label">Bio</h3>
+      <p>I'm a mechanical engineering student at Georgia Tech, originally from Miami. What I enjoy most is mechanical design and manufacturing: making parts that can actually be built and bolted together.</p>
+      <p>On HyTech Racing I work across suspension and aero. I built the MATLAB tool that sets bolt torque specs for the suspension-to-monocoque joints on our new carbon fiber chassis, ran a CFD sweep of the rear wing, and fabricate carbon fiber aero parts. Before that, I designed casting-ready CAD models for a jewelry manufacturer, so I think about how a part gets made from the first sketch.</p>
+      <p>I'm looking for a Spring or Summer 2027 mechanical engineering internship in design or manufacturing, and I'm available starting January 2027.</p>
+    </div>
+    <div class="fade-in">
+      <h3 class="sub-label">Education <i data-lucide="graduation-cap" aria-hidden="true"></i></h3>
+      <div class="card edu-card">
+        <div class="seal" aria-hidden="true"><i data-lucide="graduation-cap"></i></div>
+        <h4>Georgia Institute of Technology</h4>
+        <p>Bachelor of Science in Mechanical Engineering</p>
+        <dl class="meta">
+          <dt>DATES</dt><dd>Aug 2025 &ndash; May 2028 (expected)</dd>
+          <dt>GPA</dt><dd>4.00 / 4.00</dd>
+          <dt>LOCATION</dt><dd>Atlanta, GA</dd>
+          <dt>STATUS</dt><dd>US citizen</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="exp-title">
+  <div class="section-head">
+    <div class="callout" aria-hidden="true">VIEW<span class="balloon">C</span></div>
+    <h2><span id="exp-title">Experience</span> <i data-lucide="briefcase" aria-hidden="true"></i></h2>
+    
+  </div>
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <article class="card exp-card" data-href="resume.html#hytech" tabindex="0" aria-label="HyTech Racing: open resume entry">
+        <div class="org"><h4>HyTech Racing</h4><span class="pill ">Current</span></div>
+        <div class="role">Aerodynamics &amp; Suspension Design Member</div>
+        <span class="when">Sep 2025 &ndash; Present &middot; Atlanta, GA</span>
+        <p>Georgia Tech's Formula SAE Electric team. Built and verified a MATLAB torque spec tool for the suspension-to-monocoque joints, ran a rear wing CFD sweep, and fabricate carbon fiber aero parts.</p>
+        <span class="more" aria-hidden="true">Resume entry <i data-lucide="arrow-right"></i></span>
+      </article>
+    </div>
+    <div class="timeline-item fade-in">
+      <article class="card exp-card" data-href="resume.html#handshake" tabindex="0" aria-label="Handshake AI: open resume entry">
+        <div class="org"><h4>Handshake AI</h4><span class="pill ">Current</span></div>
+        <div class="role">AI Training Contractor &ndash; CAD &amp; Mechanical Systems</div>
+        <span class="when">Feb 2026 &ndash; Present &middot; Remote</span>
+        <p>Create and audit datasets for training generative CAD models, and check outputs for physical plausibility, tolerance accuracy and drafting conventions.</p>
+        <span class="more" aria-hidden="true">Resume entry <i data-lucide="arrow-right"></i></span>
+      </article>
+    </div>
+    <div class="timeline-item fade-in">
+      <article class="card exp-card" data-href="resume.html#rc-aircraft" tabindex="0" aria-label="Scratch-Built RC Aircraft: open resume entry">
+        <div class="org"><h4>Scratch-Built RC Aircraft</h4><span class="pill neutral">Project</span></div>
+        <div class="role">Lead Aerodynamic &amp; Structural Designer &ndash; Independent Project</div>
+        <span class="when">Apr 2025 &ndash; Jun 2025 &middot; Miami, FL</span>
+        <p>Led aero, structures and the build for a group-built foam-board aircraft that reached stable level flight at ~30% throttle.</p>
+        <span class="more" aria-hidden="true">Resume entry <i data-lucide="arrow-right"></i></span>
+      </article>
+    </div>
+    <div class="timeline-item fade-in">
+      <article class="card exp-card" data-href="resume.html#jncy" tabindex="0" aria-label="JNCY Jewelers: open resume entry">
+        <div class="org"><h4>JNCY Jewelers</h4><span class="pill neutral">Internship</span></div>
+        <div class="role">3D CAD Design Intern</div>
+        <span class="when">Summers 2023 &amp; 2024 &middot; Miami, FL</span>
+        <p>Designed 12+ custom CAD models for lost-resin investment casting, working from sketches with leadership and clients.</p>
+        <span class="more" aria-hidden="true">Resume entry <i data-lucide="arrow-right"></i></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="section-head">
+    <div class="callout" aria-hidden="true">DETAIL<span class="balloon">D</span></div>
+    <h2><span id="skills-title">Skills</span> <i data-lucide="wrench" aria-hidden="true"></i></h2>
+    
+  </div>
+  <div class="skills-grid">
+    <div class="card skill-card fade-in">
+      <h4><i data-lucide="pen-tool" aria-hidden="true"></i>CAD</h4>
+      <ul><li>CATIA</li><li>SOLIDWORKS</li><li>Autodesk Fusion</li><li>Onshape</li><li>Rhino 3D (SubD &amp; NURBS)</li></ul>
+    </div>
+    <div class="card skill-card fade-in">
+      <h4><i data-lucide="activity" aria-hidden="true"></i>Simulation &amp; Analysis</h4>
+      <ul><li>ANSYS Fluent (CFD)</li><li>FEA</li><li>MATLAB</li><li>Hand calcs (Shigley)</li><li>Tolerance analysis</li></ul>
+    </div>
+    <div class="card skill-card fade-in">
+      <h4><i data-lucide="code" aria-hidden="true"></i>Programming</h4>
+      <ul><li>MATLAB</li><li>Python <small>(numerical methods coursework)</small></li></ul>
+    </div>
+    <div class="card skill-card fade-in">
+      <h4><i data-lucide="hammer" aria-hidden="true"></i>Fabrication &amp; Design</h4>
+      <ul><li>Resin-infused carbon fiber layups</li><li>Mold tooling</li><li>3D printing</li><li>Laser cutting</li><li>Investment casting prep</li><li>GD&amp;T</li><li>DFM</li><li>Technical drawings</li></ul>
+    </div>
+  </div>
+  <p class="certs fade-in">Certifications: Alteryx Designer Core Certified &middot; Pre-Engineering Industry Certification (150-hour accredited program)</p>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="section-head">
+    <div class="callout" aria-hidden="true">SECTION E&ndash;E</div>
+    <h2><span id="contact-title">Contact</span> <i data-lucide="message-square" aria-hidden="true"></i></h2>
+    
+  </div>
+  <p class="lead fade-in">I'm looking for Spring or Summer 2027 mechanical engineering internships. If your team designs and builds hardware, I'd like to hear from you.</p>
+  <div class="contact-icons fade-in">
+    <a class="btn primary" href="mailto:frodriguez61@gatech.edu"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;width:18px;height:18px" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg> frodriguez61@gatech.edu</a>
+    <a class="btn secondary" href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank" rel="noopener noreferrer"><span style="display:inline-flex;width:18px;height:18px"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3.2a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2zM2.2 9h3.6v12H2.2zM8.8 9h3.4v1.7h.1c.5-.9 1.7-2 3.6-2 3.8 0 4.5 2.5 4.5 5.7V21h-3.6v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H8.8z"/></svg></span> LinkedIn</a>
+    <a class="btn secondary" href="resume.html"><i data-lucide="file-text" aria-hidden="true"></i> Resume</a>
+  </div>
+</section>
+</main>
+
+<footer class="title-block-wrap" aria-label="Drawing title block">
+  <div class="title-block">
+    <div class="tb-title"><span class="k">TITLE</span><span class="v">FELIPE RODRIGUEZ &ndash; PORTFOLIO</span></div>
+    <div><span class="k">DRAWN</span><span class="v">F. RODRIGUEZ</span></div>
+    <div><span class="k">CHECKED</span><span class="v">SHIGLEY EX. 8-2</span></div>
+    <div><span class="k">MATERIAL</span><span class="v">GEORGIA TECH ME</span></div>
+    <div><span class="k">SCALE</span><span class="v">1:1</span></div>
+    <div><span class="k">REV</span><span class="v">C</span></div>
+    <div><span class="k">SHEET</span><span class="v">1 OF 1</span></div>
+    <div class="tb-note"><span class="k">NOTES</span><span class="v">&copy; 2026 Felipe Rodriguez &middot; <a href="mailto:frodriguez61@gatech.edu">frodriguez61@gatech.edu</a> &middot; <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot; <a href="resume.html">Resume</a></span></div>
+  </div>
+</footer>
+<button id="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></button>
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

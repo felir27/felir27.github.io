@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSAE Aero: CFD &amp; Composites | Felipe Rodriguez</title>
+  <meta name="description" content="Rear wing CFD sweep in ANSYS Fluent and carbon fiber aero fabrication for HyTech Racing.">
+  <meta property="og:title" content="FSAE Aero: CFD &amp; Composites | Felipe Rodriguez">
+  <meta property="og:description" content="Rear wing CFD sweep in ANSYS Fluent and carbon fiber aero fabrication for HyTech Racing.">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script>try{if(localStorage.getItem("theme")==="light")document.body.classList.add("light")}catch(e){}</script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="brand-island">
+  <a href="../index.html">Felipe Rodriguez<span class="brand-code" aria-hidden="true">DWG FR-27</span></a>
+</div>
+<nav id="floating-nav" aria-label="Primary"><a class="nav-btn" href="../index.html#projects">Projects</a><a class="nav-btn" href="../index.html#about">About</a><a class="nav-btn" href="../index.html#experience">Experience</a><a class="nav-btn" href="../index.html#contact">Contact</a><a class="nav-btn" href="../resume.html">Resume</a></nav>
+<button id="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+
+<main id="main" class="page">
+  <a class="back-link" href="../index.html#projects"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to projects</a>
+  <header class="page-head">
+    <div class="callout" aria-hidden="true">PROJECT DETAIL</div>
+    <h1>FSAE Aero: CFD &amp; Composites</h1>
+    <p class="subtitle">HyTech Racing &middot; Rear wing CFD sweep and carbon fiber aero parts</p>
+    <div class="chips"><span class="chip">ANSYS Fluent</span><span class="chip">PACE HPC</span><span class="chip">CFD</span><span class="chip">Resin infusion</span><span class="chip">Mold tooling</span></div>
+  </header>
+  <figure class="figure white">
+    <img src="../Hytech%20Portfolio%20Image.jpg" alt="Polyhedral CFD mesh around the side profile of the HyTech car, driver and multi-element rear wing">
+    <figcaption><b>FIG. 1</b>CFD mesh around the car body and wing elements.</figcaption>
+  </figure>
+  <section class="prose-section fade-in" aria-labelledby="s0">
+    <h2 id="s0"><span class="callout" aria-hidden="true">01</span>Overview</h2>
+    
+    <p>On HyTech Racing I support the aero side of the car in two ways: CFD on the rear wing, and building the carbon fiber parts. This page covers both.</p>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s1">
+    <h2 id="s1"><span class="callout" aria-hidden="true">02</span>Rear wing angle sweep</h2>
+    
+    <ul>
+      <li>Ran a <strong>5-case CFD sweep</strong> of rear wing angles in ANSYS Fluent on Georgia Tech's <strong>PACE</strong> high-performance computing cluster.</li>
+      <li>This gave the team its first medium-downforce CFD dataset, alongside the existing high-downforce data.</li>
+      <li>Identified a wing angle that cut drag by <strong>28%</strong> for a <strong>17%</strong> downforce trade-off versus the high-downforce baseline, and presented the findings to the aero lead to inform configuration selection for high-speed corners.</li>
+    </ul>
+    <figure class="bars" role="group" aria-labelledby="bars-t">
+      <div class="bars-title" id="bars-t">Selected wing angle vs. high-downforce baseline</div>
+      <div class="bars-sub">Baseline = 100%</div>
+      <div class="legend" aria-hidden="true"><span><i class="swatch base"></i>Baseline</span><span><i class="swatch sel"></i>Selected angle</span></div>
+      <div aria-hidden="true">
+        <div class="bar-group"><div class="metric">Drag</div>
+          <div class="bar-row" title="Drag, baseline: 100%"><span>Baseline</span><div class="bar-track"><div class="bar base" style="width:100%"></div></div><span class="val">100%</span></div>
+          <div class="bar-row" title="Drag, selected angle: 72%"><span>Selected</span><div class="bar-track"><div class="bar sel" style="width:72%"></div></div><span class="val">72%</span></div>
+        </div>
+        <div class="bar-group"><div class="metric">Downforce</div>
+          <div class="bar-row" title="Downforce, baseline: 100%"><span>Baseline</span><div class="bar-track"><div class="bar base" style="width:100%"></div></div><span class="val">100%</span></div>
+          <div class="bar-row" title="Downforce, selected angle: 83%"><span>Selected</span><div class="bar-track"><div class="bar sel" style="width:83%"></div></div><span class="val">83%</span></div>
+        </div>
+      </div>
+      <table class="visually-hidden">
+        <caption>Drag and downforce of the selected wing angle relative to the high-downforce baseline</caption>
+        <thead><tr><th scope="col">Metric</th><th scope="col">Baseline</th><th scope="col">Selected angle</th></tr></thead>
+        <tbody><tr><th scope="row">Drag</th><td>100%</td><td>72%</td></tr><tr><th scope="row">Downforce</th><td>100%</td><td>83%</td></tr></tbody>
+      </table>
+    </figure>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s2">
+    <h2 id="s2"><span class="callout" aria-hidden="true">03</span>Getting results I could trust</h2>
+    
+    <p>Before relying on the numbers, I reduced CFD solve residuals by <strong>90%</strong> by tuning body-of-influence sizing and iteration count, smoothing mesh gradients and improving flux conservation across the model.</p>
+    <p>I also worked with my lead to balance the wing setup against the powertrain team's radiator cooling-flow needs.</p>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s3">
+    <h2 id="s3"><span class="callout" aria-hidden="true">04</span>Composite fabrication</h2>
+    
+    <p>I fabricate structural composite aero parts with resin-infused carbon fiber layups: precision mold tooling, layup, debulking, sanding and surface finishing.</p>
+  </section>
+  <p><a class="back-link" href="../index.html#projects"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to projects</a></p>
+</main>
+
+<footer class="title-block-wrap" aria-label="Drawing title block">
+  <div class="title-block">
+    <div class="tb-title"><span class="k">TITLE</span><span class="v">FELIPE RODRIGUEZ &ndash; PORTFOLIO</span></div>
+    <div><span class="k">DRAWN</span><span class="v">F. RODRIGUEZ</span></div>
+    <div><span class="k">CHECKED</span><span class="v">SHIGLEY EX. 8-2</span></div>
+    <div><span class="k">MATERIAL</span><span class="v">GEORGIA TECH ME</span></div>
+    <div><span class="k">SCALE</span><span class="v">1:1</span></div>
+    <div><span class="k">REV</span><span class="v">C</span></div>
+    <div><span class="k">SHEET</span><span class="v">1 OF 1</span></div>
+    <div class="tb-note"><span class="k">NOTES</span><span class="v">&copy; 2026 Felipe Rodriguez &middot; <a href="mailto:frodriguez61@gatech.edu">frodriguez61@gatech.edu</a> &middot; <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot; <a href="../resume.html">Resume</a></span></div>
+  </div>
+</footer>
+<button id="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></button>
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

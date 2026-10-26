@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torque Spec Calculator | Felipe Rodriguez</title>
+  <meta name="description" content="MATLAB torque spec tool for Formula SAE suspension-to-monocoque bolted joints, with a live browser demo.">
+  <meta property="og:title" content="Torque Spec Calculator | Felipe Rodriguez">
+  <meta property="og:description" content="MATLAB torque spec tool for Formula SAE suspension-to-monocoque bolted joints, with a live browser demo.">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script>try{if(localStorage.getItem("theme")==="light")document.body.classList.add("light")}catch(e){}</script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="brand-island">
+  <a href="../index.html">Felipe Rodriguez<span class="brand-code" aria-hidden="true">DWG FR-27</span></a>
+</div>
+<nav id="floating-nav" aria-label="Primary"><a class="nav-btn" href="../index.html#projects">Projects</a><a class="nav-btn" href="../index.html#about">About</a><a class="nav-btn" href="../index.html#experience">Experience</a><a class="nav-btn" href="../index.html#contact">Contact</a><a class="nav-btn" href="../resume.html">Resume</a></nav>
+<button id="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+
+<main id="main" class="page">
+  <a class="back-link" href="../index.html#projects"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to projects</a>
+  <header class="page-head">
+    <div class="callout" aria-hidden="true">PROJECT DETAIL</div>
+    <h1>Torque Spec Calculator</h1>
+    <p class="subtitle">HyTech Racing &middot; MATLAB tool for the suspension-to-monocoque bolted joints</p>
+    <div class="chips"><span class="chip">MATLAB</span><span class="chip">Bolted joints</span><span class="chip">Shigley frustum method</span><span class="chip">Verification</span></div>
+  </header>
+  <figure class="figure white">
+    <img src="../assets/torque-frustum.png" alt="Frustum compression zone for an M8 10.9 bolt through Al 6061-T6, CFRP, G10 and CFRP, with the two 30 degree pressure cones meeting at mid-grip">
+    <figcaption><b>FIG. 1</b>Reproduction of the tool's frustum model for the example case (not a MATLAB screenshot).</figcaption>
+  </figure>
+  <section class="prose-section fade-in" aria-labelledby="s0">
+    <h2 id="s0"><span class="callout" aria-hidden="true">01</span>Overview</h2>
+    
+    <p>HyTech Racing is moving to a carbon fiber monocoque, and the suspension brackets bolt through a mixed stack of aluminum, carbon fiber and G10. A torque value copied from a generic chart doesn't account for how soft or stiff each of those layers is, so I built a MATLAB tool that sets the torque spec for the <strong>suspension-to-monocoque joints</strong> from first principles.</p>
+    <p>The tool takes the bolt, an arbitrary clamped stack, the applied 3-axis loads and a safety factor, and returns the required preload and torque. It is verified and has been <strong>submitted to my lead</strong>.</p>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s1">
+    <h2 id="s1"><span class="callout" aria-hidden="true">02</span>What it checks</h2>
+    
+    <ul>
+      <li><strong>Joint separation:</strong> enough preload that the factored axial load never unloads the clamped members.</li>
+      <li><strong>Shear slip:</strong> enough clamp force that friction carries the factored in-plane load.</li>
+      <li><strong>Layer yield:</strong> each layer's bearing stress under peak clamp compared with its compressive yield.</li>
+      <li><strong>Bolt proof load:</strong> peak bolt tension compared with the bolt's proof load.</li>
+    </ul>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s2">
+    <h2 id="s2"><span class="callout" aria-hidden="true">03</span>Method</h2>
+    
+    <ul>
+      <li>Models member stiffness layer by layer with the <strong>Shigley frustum method</strong> (30&deg; pressure cones from each side meeting at mid-grip), including the washers.</li>
+      <li>Computes bolt stiffness from the grip length and the threaded and unthreaded lengths in the grip.</li>
+      <li>Uses the joint constant C = k<sub>b</sub>/(k<sub>b</sub>+k<sub>m</sub>) to split the external load between bolt and members, then sizes preload against separation and slip under factored loads.</li>
+      <li>Converts preload to torque with T = K&middot;F&middot;d.</li>
+    </ul>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s3">
+    <h2 id="s3"><span class="callout" aria-hidden="true">04</span>Verification</h2>
+    
+    <div class="badges" style="margin-bottom:14px"><span class="badge">&#10003; Matches Shigley Ex. 8-2</span><span class="badge">100-case stress test</span></div>
+    <ul>
+      <li><strong>Shigley Example 8-2:</strong> member stiffness matches the textbook, and bolt stiffness is within 0.3% (the difference comes from the metric vs. inch thread-length rule).</li>
+      <li><strong>Independent hand calculation:</strong> matched.</li>
+      <li><strong>100 input cases:</strong> stress-tested the tool and found failure modes, such as invalid washer geometry returning complex torques and &mu; = 0 silently ignoring shear. I added input checks for them.</li>
+    </ul>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s4">
+    <h2 id="s4"><span class="callout" aria-hidden="true">05</span>Example case</h2>
+    
+    <div class="stat-row">
+      <div class="stat"><span class="k">TORQUE</span><span class="v">~18.3 N&middot;m</span><span class="s">M8 class 10.9</span></div>
+      <div class="stat"><span class="k">PRELOAD</span><span class="v">~11.45 kN</span><span class="s">slip governs</span></div>
+      <div class="stat"><span class="k">JOINT CONSTANT</span><span class="v">C &asymp; 0.487</span><span class="s">Al / CFRP / G10 / CFRP</span></div>
+    </div>
+    <div class="table-scroll"><table class="spec-table">
+      <caption class="visually-hidden">Example clamped stack</caption>
+      <thead><tr><th scope="col">LAYER</th><th scope="col">THICKNESS</th></tr></thead>
+      <tbody>
+        <tr><td>Washer (head)</td><td>1.6 mm</td></tr>
+        <tr><td>Al 6061-T6 bracket</td><td>5.0 mm</td></tr>
+        <tr><td>CFRP aero skin</td><td>3.0 mm</td></tr>
+        <tr><td>G10 fiberglass</td><td>3.175 mm</td></tr>
+        <tr><td>CFRP aero skin</td><td>3.0 mm</td></tr>
+        <tr><td>Washer (nut)</td><td>1.6 mm</td></tr>
+      </tbody>
+    </table></div>
+    <p>Loads for this case are P = [650, 420, 1100] N with a safety factor of 2, friction 0.25 under the head and 0.15 at the nut, and K = 0.20.</p>
+    <figure class="figure white">
+      <img src="../Torque%20Calculator%20Portfolio%20Image.png.jpg" alt="MATLAB output of the torque tool: frustum stress envelope over a clamped stack and a joint specification summary panel" loading="lazy">
+      <figcaption><b>FIG. 2</b>The tool's MATLAB output for a different test stack (aluminum honeycomb core instead of G10), so its numbers differ from the example case above.</figcaption>
+    </figure>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s5">
+    <h2 id="s5"><span class="callout" aria-hidden="true">06</span>Try it: live torque demo</h2>
+    
+    <form id="torque-demo" class="demo" onsubmit="return false" aria-describedby="demo-label">
+      <p class="demo-label" id="demo-label">Simplified browser demo of my MATLAB tool. The full tool handles arbitrary stacks, auto bolt length, and per-layer yield checks.</p>
+      <p class="demo-fixed">FIXED: M8 class 10.9 &middot; Al 6061-T6 5.0 / CFRP 3.0 / G10 3.175 / CFRP 3.0 mm &middot; M8 washers under head and nut &middot; frustum angle 30&deg; &middot; K = 0.20</p>
+      <div class="demo-grid">
+        <div>
+          <div class="slider">
+            <label for="in-pz"><span>Axial load P<sub>z</sub></span> <output id="o-pz" for="in-pz">1,100 N</output></label>
+            <input type="range" id="in-pz" min="0" max="3000" step="10" value="1100">
+            <span class="hint">Tension along the bolt axis, before the safety factor</span>
+          </div>
+          <div class="slider">
+            <label for="in-v"><span>Resultant shear V</span> <output id="o-v" for="in-v">774 N</output></label>
+            <input type="range" id="in-v" min="0" max="2000" step="0.01" value="773.95">
+            <span class="hint">In-plane load across the joint interface, before the safety factor</span>
+          </div>
+          <div class="slider">
+            <label for="in-sf"><span>Safety factor</span> <output id="o-sf" for="in-sf">2.0</output></label>
+            <input type="range" id="in-sf" min="1" max="4" step="0.1" value="2">
+          </div>
+          <div class="slider">
+            <label for="in-mu"><span>Interface friction &mu;</span> <output id="o-mu" for="in-mu">0.15</output></label>
+            <input type="range" id="in-mu" min="0.05" max="0.5" step="0.01" value="0.15">
+            <span class="hint">Lowest friction coefficient in the joint</span>
+          </div>
+          <div class="demo-actions"><button type="button" class="btn secondary small" id="demo-reset"><i data-lucide="rotate-ccw" aria-hidden="true"></i> Reset to example case</button></div>
+        </div>
+        <div class="results" aria-live="polite">
+          <div class="res big"><span class="k">TORQUE SPEC  T = K&middot;F<sub>2</sub>&middot;d</span><span class="v" id="r-torque">18.3 N&middot;m</span><span class="sub" id="r-torque-imp">13.5 lbf&middot;ft</span></div>
+          <div class="res span"><span class="k">REQUIRED PRELOAD F<sub>2</sub></span><span class="v"><span id="r-f2">11.45 kN</span> <span class="status-text" id="r-gov" style="color:var(--accent)">shear slip governs</span></span></div>
+          <div class="res" id="res-sep"><span class="k">SEPARATION PRELOAD <span class="gov-tag" id="tag-sep" hidden></span></span><span class="v" id="r-sep">&ndash;</span></div>
+          <div class="res" id="res-slip"><span class="k">SLIP PRELOAD <span class="gov-tag" id="tag-slip">governs</span></span><span class="v" id="r-slip">&ndash;</span></div>
+          <div class="res span"><span class="k">JOINT CONSTANT C</span><span class="v" id="r-c">&ndash;</span></div>
+          <div class="res"><span class="k">MEMBER STIFFNESS k<sub>m</sub></span><span class="v" id="r-km">&ndash;</span></div>
+          <div class="res"><span class="k">BOLT STIFFNESS k<sub>b</sub></span><span class="v" id="r-kb">&ndash;</span></div>
+          <div class="res span status-ok" id="res-proof"><span class="k">BOLT LOAD vs PROOF LOAD</span><span class="v"><span id="r-proof">&ndash;</span><span class="status-text" id="r-status">OK</span></span><span class="k" id="r-fb" style="margin-top:2px">&ndash;</span><div class="util-bar" aria-hidden="true"><span id="r-bar"></span></div></div>
+        </div>
+      </div>
+    </form>
+    <p class="note">Warning color at 80% of proof load or more, fail above 100%. Preload is sized to the larger of the separation and slip requirements, so any shear load makes slip govern.</p>
+  </section>
+  <section class="prose-section fade-in" aria-labelledby="s6">
+    <h2 id="s6"><span class="callout" aria-hidden="true">07</span>Status</h2>
+    
+    <p>The tool is finished and verified, and I submitted it to my lead.</p>
+  </section>
+  <p><a class="back-link" href="../index.html#projects"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to projects</a></p>
+</main>
+
+<footer class="title-block-wrap" aria-label="Drawing title block">
+  <div class="title-block">
+    <div class="tb-title"><span class="k">TITLE</span><span class="v">FELIPE RODRIGUEZ &ndash; PORTFOLIO</span></div>
+    <div><span class="k">DRAWN</span><span class="v">F. RODRIGUEZ</span></div>
+    <div><span class="k">CHECKED</span><span class="v">SHIGLEY EX. 8-2</span></div>
+    <div><span class="k">MATERIAL</span><span class="v">GEORGIA TECH ME</span></div>
+    <div><span class="k">SCALE</span><span class="v">1:1</span></div>
+    <div><span class="k">REV</span><span class="v">C</span></div>
+    <div><span class="k">SHEET</span><span class="v">1 OF 1</span></div>
+    <div class="tb-note"><span class="k">NOTES</span><span class="v">&copy; 2026 Felipe Rodriguez &middot; <a href="mailto:frodriguez61@gatech.edu">frodriguez61@gatech.edu</a> &middot; <a href="https://www.linkedin.com/in/felipe-rodriguez27" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot; <a href="../resume.html">Resume</a></span></div>
+  </div>
+</footer>
+<button id="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></button>
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/torque.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
